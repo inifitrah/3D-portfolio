@@ -7,6 +7,7 @@ import {
   useProgress,
 } from "@react-three/drei";
 import Robot from "../components/Robot";
+import Avatar from "../components/Avatar";
 
 function Loader() {
   const { active, progress, errors, item, loaded, total } = useProgress();
@@ -23,9 +24,10 @@ export const Hero = () => {
       className="text-white min-h-screen flex flex-col relative"
       id="home"
     >
-      <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space ">
+      <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space">
         <p className="hero_tag text-gray_gradient">
-          Software Engineer <span className="waving-hand">🔥</span>
+          Software Engineer{" "}
+          <span className="waving-hand text-yellow-400">!</span>
         </p>
       </div>
 
@@ -34,9 +36,9 @@ export const Hero = () => {
           <Suspense fallback={<Loader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
             <OrbitControls />
-            <Robot
-              scale={[15, 15, 15]}
-              position={[0, -10, 0]}
+            <Avatar
+              scale={[30, 30, 30]}
+              position={[0, -43, 0]}
               rotation={[0, 0, 0]}
             />
 
