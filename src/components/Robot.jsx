@@ -8,6 +8,7 @@ Title: Futuristic flying animated Robot - Low Poly
 
 import React, { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
 function Robot(props) {
   const group = useRef();
@@ -18,6 +19,12 @@ function Robot(props) {
     actions[names[0]].play();
   }, []);
 
+  // useFrame((state, delta) => {
+  //   actions[names[0]].update(delta);
+  //   if (group.current) {
+  //     group.current.rotation.y += 0.01;
+  //   }
+  // });
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
