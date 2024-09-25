@@ -8,6 +8,7 @@ import {
 } from "@react-three/drei";
 import Robot from "../components/Robot";
 import Avatar from "../components/Avatar";
+import { Leva, useControls } from "leva";
 
 function Loader() {
   const { active, progress, errors, item, loaded, total } = useProgress();
@@ -19,6 +20,12 @@ function Loader() {
 }
 
 export const Hero = () => {
+  const x = useControls("Avatar", {
+    positionX: { value: 2.5, min: -10, max: 10 },
+    positionY: { value: 2.5, min: -10, max: 10 },
+    positionZ: { value: 2.5, min: -10, max: 10 },
+    scale: { value: 1, min: 0.5, max: 10 },
+  });
   return (
     <section
       className="text-white min-h-screen flex flex-col relative"
@@ -32,14 +39,15 @@ export const Hero = () => {
       </div>
 
       <div className="w-full h-full absolute inset-0">
+        <Leva />
         <Canvas className="w-full h-full">
           <Suspense fallback={<Loader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
             <OrbitControls />
             <Avatar
-              scale={[30, 30, 30]}
-              position={[0, -43, 0]}
-              rotation={[0, 0, 0]}
+              scale={[x.scale, x.scale, x.scale]}
+              rotation={[x.positionX, x.positionY, x.positionZ]}
+              position={[x.positionX, x.positionY, x.positionZ]}
             />
 
             <ambientLight intensity={1} />
