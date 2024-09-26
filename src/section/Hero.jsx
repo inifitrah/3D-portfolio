@@ -21,10 +21,10 @@ function Loader() {
 
 export const Hero = () => {
   const x = useControls("Avatar", {
-    positionX: { value: 2.5, min: -10, max: 10 },
-    positionY: { value: 2.5, min: -10, max: 10 },
-    positionZ: { value: 2.5, min: -10, max: 10 },
-    scale: { value: 1, min: 0.5, max: 10 },
+    positionX: { value: 0, min: -10, max: 10 },
+    positionY: { value: -10, min: -10, max: 10 },
+    positionZ: { value: 0, min: -10, max: 10 },
+    scale: { value: 20, min: 8, max: 20 },
   });
   return (
     <section
@@ -39,17 +39,15 @@ export const Hero = () => {
       </div>
 
       <div className="w-full h-full absolute inset-0">
-        <Leva />
+        <Leva hidden />
         <Canvas className="w-full h-full">
           <Suspense fallback={<Loader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-            <OrbitControls />
-            <Avatar
+            <Robot
               scale={[x.scale, x.scale, x.scale]}
-              rotation={[x.positionX, x.positionY, x.positionZ]}
+              rotation={[0, 0, 0]}
               position={[x.positionX, x.positionY, x.positionZ]}
             />
-
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} />
           </Suspense>

@@ -1,4 +1,5 @@
 import TailwindSizeIndicator from "./components/TailwindSizeIndicator";
+import About from "./section/About";
 import { Hero } from "./section/Hero";
 import { Navbar } from "./section/Navbar";
 const App = () => {
@@ -7,6 +8,7 @@ const App = () => {
       {import.meta.env.MODE === "development" && <TailwindSizeIndicator />}
       <Navbar />
       <Hero />
+      <About />
     </main>
   );
 };
