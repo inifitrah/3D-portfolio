@@ -9,6 +9,7 @@ import {
 import Robot from "../components/Robot";
 import Avatar from "../components/Avatar";
 import { Leva, useControls } from "leva";
+import CardProfile from "../components/CardProfile";
 
 function Loader() {
   const { active, progress, errors, item, loaded, total } = useProgress();
@@ -27,20 +28,21 @@ export const Hero = () => {
     scale: { value: 20, min: 8, max: 20 },
   });
   return (
-    <section
-      className="text-white min-h-screen flex flex-col relative"
-      id="home"
-    >
-      <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space">
-        <p className="hero_tag text-gray_gradient">
-          Software Engineer{" "}
-          <span className="waving-hand text-yellow-400">!</span>
+    <section className="text-white min-h-screen flex relative" id="home">
+      <div className=" w-1/2  flex flex-col sm:mt-60 mt-20 c-space">
+        <p className="">I'm a</p>
+        <p className="hero_tag text-gray_gradient z-50">Software Engineer, </p>
+        <p className="hero_tag text-gray_gradient z-50">Educator </p>
+        <p className="mt-10">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat totam
+          corporis harum minima. Quos repellendus consequatur error dolore totam
+          ad soluta asperiores consectetur.
         </p>
       </div>
 
-      <div className="w-full h-full absolute inset-0">
+      <div className="w-1/2 right-0 top-0 left-1/2 h-full absolute inset-0">
         <Leva hidden />
-        <Canvas className="w-full h-full">
+        {/* <Canvas className="w-full h-full">
           <Suspense fallback={<Loader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
             <Robot
@@ -51,7 +53,8 @@ export const Hero = () => {
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} />
           </Suspense>
-        </Canvas>
+        </Canvas> */}
+        <CardProfile />
       </div>
     </section>
   );

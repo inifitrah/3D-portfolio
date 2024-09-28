@@ -7,7 +7,7 @@ const About = () => {
       className="h-full w-full absolute overflow-hidden pointer-events-auto"
       id="about"
     >
-      <CardProfile />
+      about
     </section>
   );
 };
