@@ -154,9 +154,15 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   curve.curveType = "chordal";
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
+  const x = useControls("CardPofile", {
+    positionX: { value: 1.8, min: -10, max: 10 },
+    positionY: { value: 4.7, min: -10, max: 10 },
+    positionZ: { value: -0.2, min: -10, max: 10 },
+  });
+
   return (
     <>
-      <group position={[0, 4.7, 0]}>
+      <group position={[x.positionX, x.positionY, x.positionZ]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />
