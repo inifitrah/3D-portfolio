@@ -19,7 +19,7 @@ import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 import { useControls } from "leva";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
-useGLTF.preload("models/card.glb");
+useGLTF.preload("models/cardtrah.glb");
 useTexture.preload("images/band.jpg");
 
 export default function CardProfile() {
@@ -83,7 +83,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
     angularDamping: 2,
     linearDamping: 2,
   };
-  const { nodes, materials } = useGLTF("models/card.glb");
+  const { nodes, materials } = useGLTF("models/cardtrah.glb");
   const texture = useTexture("images/band.jpg");
   const { width, height } = useThree((state) => state.size);
   const [curve] = useState(
@@ -156,7 +156,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
 
   return (
     <>
-      <group position={[0, 4, 0]}>
+      <group position={[0, 4.7, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />
@@ -210,7 +210,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
           </group>
         </RigidBody>
       </group>
-      <mesh ref={band} position={[0, 0, 0]}>
+      <mesh ref={band} position={[0, -0.3, 0]}>
         <meshLineGeometry />
         <meshLineMaterial
           color="white"

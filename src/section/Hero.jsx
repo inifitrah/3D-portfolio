@@ -34,13 +34,13 @@ export const Hero = () => {
         <p className="hero_tag text-gray_gradient z-50">Software Engineer, </p>
         <p className="hero_tag text-gray_gradient z-50">Educator </p>
         <p className="mt-10">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat totam
-          corporis harum minima. Quos repellendus consequatur error dolore totam
-          ad soluta asperiores consectetur.
+          I'm a software engineer, writer, and creator. I write about
+          programming, productivity, and personal development. I'm passionate
+          about building products that make a difference.
         </p>
       </div>
 
-      <div className="w-1/2 right-0 top-0 left-1/2 h-full absolute inset-0">
+      <div className="w-1/2 hidden md:block right-0 top-0 left-1/2 h-full absolute inset-0">
         <Leva hidden />
         {/* <Canvas className="w-full h-full">
           <Suspense fallback={<Loader />}>
