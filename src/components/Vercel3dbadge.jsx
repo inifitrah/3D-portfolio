@@ -19,16 +19,17 @@ import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 import { useControls } from "leva";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
-useGLTF.preload("models/cardtrah2.glb");
-useTexture.preload("images/bandgray.jpg");
+useGLTF.preload(
+  "https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/5huRVDzcoDwnbgrKUo1Lzs/53b6dd7d6b4ffcdbd338fa60265949e1/tag.glb"
+);
+useTexture.preload(
+  "https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/SOT1hmCesOHxEYxL7vkoZ/c57b29c85912047c414311723320c16b/band.jpg"
+);
 
-export default function CardProfile() {
+export default function Vercel3dbadge() {
   const { debug } = useControls({ debug: false });
   return (
-    <Canvas
-      className="w-full h-full"
-      camera={{ position: [0, 0, 10], fov: 25 }}
-    >
+    <Canvas camera={{ position: [0, 0, 13], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
       <Physics
         debug={debug}
@@ -83,8 +84,12 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
     angularDamping: 2,
     linearDamping: 2,
   };
-  const { nodes, materials } = useGLTF("models/cardtrah2.glb");
-  const texture = useTexture("images/bandgray.jpg");
+  const { nodes, materials } = useGLTF(
+    "https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/5huRVDzcoDwnbgrKUo1Lzs/53b6dd7d6b4ffcdbd338fa60265949e1/tag.glb"
+  );
+  const texture = useTexture(
+    "https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/SOT1hmCesOHxEYxL7vkoZ/c57b29c85912047c414311723320c16b/band.jpg"
+  );
   const { width, height } = useThree((state) => state.size);
   const [curve] = useState(
     () =>
@@ -154,15 +159,9 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   curve.curveType = "chordal";
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
-  const x = useControls("CardPofile", {
-    positionX: { value: 1.8, min: -10, max: 10 },
-    positionY: { value: 4.7, min: -10, max: 10 },
-    positionZ: { value: -0.2, min: -10, max: 10 },
-  });
-
   return (
     <>
-      <group position={[x.positionX, x.positionY, x.positionZ]}>
+      <group position={[0, 4, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />
@@ -216,7 +215,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
           </group>
         </RigidBody>
       </group>
-      <mesh ref={band} position={[0, 0, 0]}>
+      <mesh ref={band}>
         <meshLineGeometry />
         <meshLineMaterial
           color="white"
@@ -224,8 +223,8 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
           resolution={[width, height]}
           useMap
           map={texture}
-          repeat={[-4, 1]}
-          lineWidth={0.9}
+          repeat={[-3, 1]}
+          lineWidth={1}
         />
       </mesh>
     </>

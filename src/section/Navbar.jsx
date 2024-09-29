@@ -23,7 +23,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="bg-black/90 fixed top-0 left-0 right-0 z-50">
+    <header className="bg-black/90 fixed top-0 left-0 right-0 z-[101]">
       <div className="flex justify-between items-center max-w-7xl mx-auto p-4">
         <a href="/" className="text-white text-xl font-bold">
           FIT

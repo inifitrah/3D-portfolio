@@ -10,6 +10,7 @@ import Robot from "../components/Robot";
 import Avatar from "../components/Avatar";
 import { Leva, useControls } from "leva";
 import CardProfile from "../components/CardProfile";
+import Vercel3dbadge from "../components/Vercel3dbadge";
 
 function Loader() {
   const { active, progress, errors, item, loaded, total } = useProgress();
