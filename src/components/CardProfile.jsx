@@ -17,6 +17,7 @@ import {
 } from "@react-three/rapier";
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 import { useControls } from "leva";
+import { useMediaQuery } from "react-responsive";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 useGLTF.preload("models/cardtrah2.glb");
@@ -25,10 +26,7 @@ useTexture.preload("images/bandgray.jpg");
 export default function CardProfile() {
   const { debug } = useControls({ debug: false });
   return (
-    <Canvas
-      className="w-full h-full"
-      camera={{ position: [0, 0, 10], fov: 25 }}
-    >
+    <Canvas camera={{ position: [0, 0, 10], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
       <Physics
         debug={debug}
@@ -154,8 +152,16 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   curve.curveType = "chordal";
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
+  const isMd = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
+  const isLg = useMediaQuery({ minWidth: 1024, maxWidth: 1280 });
+  const isXl = useMediaQuery({ minWidth: 1280 });
+
   const x = useControls("CardPofile", {
-    positionX: { value: 1.8, min: -10, max: 10 },
+    positionX: {
+      value: isMd ? 1.2 : isLg ? 1.6 : isXl ? 2 : 2,
+      min: -10,
+      max: 10,
+    },
     positionY: { value: 4.7, min: -10, max: 10 },
     positionZ: { value: -0.2, min: -10, max: 10 },
   });

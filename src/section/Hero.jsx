@@ -24,7 +24,7 @@ function Loader() {
 export const Hero = () => {
   return (
     <section className="text-white min-h-screen flex relative" id="home">
-      <div className="ml-20 w-1/2  flex flex-col sm:mt-60 mt-20 c-space z-[100]">
+      <div className="lg:ml-20 w-1/2  flex flex-col sm:mt-60 mt-20 c-space z-[100]">
         <p className="">I'm a</p>
         <p className="hero_tag text-gray_gradient">Software Engineer, </p>
         <p className="hero_tag text-gray_gradient ">Educator </p>
@@ -35,8 +35,8 @@ export const Hero = () => {
         </p>
       </div>
 
-      <div className="w-full  hidden md:flex h-full absolute inset-0">
-        <Leva hidden />
+      <div className=" hidden md:flex absolute inset-0">
+        <Leva />
         <CardProfile />
       </div>
     </section>
