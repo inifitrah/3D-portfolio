@@ -24,16 +24,10 @@ useGLTF.preload("models/cardtrah2.glb");
 useTexture.preload("images/bandgray.jpg");
 
 export default function CardProfile() {
-  const { debug } = useControls({ debug: false });
   return (
     <Canvas camera={{ position: [0, 0, 10], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
-      <Physics
-        debug={debug}
-        interpolate
-        gravity={[0, -40, 0]}
-        timeStep={1 / 60}
-      >
+      <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
         <Band />
       </Physics>
       <Environment background blur={0.75}>
@@ -151,20 +145,6 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
 
   curve.curveType = "chordal";
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-
-  // const isMd = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
-  // const isLg = useMediaQuery({ minWidth: 1024, maxWidth: 1280 });
-  // const isXl = useMediaQuery({ minWidth: 1280 });
-
-  // const x = useControls("CardPofile", {
-  //   positionX: {
-  //     value: isMd ? 1.2 : isLg ? 1.6 : isXl ? 2 : 2,
-  //     min: -10,
-  //     max: 10,
-  //   },
-  //   positionY: { value: 4.7, min: -10, max: 10 },
-  //   positionZ: { value: -0.2, min: -10, max: 10 },
-  // });
   return (
     <>
       <group position={[1.3, 4.5, -0.2]}>
