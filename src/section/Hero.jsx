@@ -16,7 +16,7 @@ function Loader() {
 export const Hero = () => {
   return (
     <section className="text-white min-h-screen flex relative" id="home">
-      <div className="lg:ml-20 w-full md:w-1/2  flex text-center md:text-start flex-col sm:mt-30 md:mt-60 mt-20 c-space z-[100]">
+      <div className="lg:ml-20 w-full md:w-1/2  flex text-center md:text-start flex-col sm:mt-30 md:mt-60 c-space z-[100]">
         <CardProfileMobileView />
         <p className="">I'm a</p>
         <p className="hero_tag text-gray_gradient">Software Engineer, </p>

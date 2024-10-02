@@ -14,7 +14,7 @@ useTexture.preload("images/bandgray.jpg");
 function CardProfileMobileView() {
   return (
     <Canvas
-      className="shadow-lg md:hidden"
+      className=" md:hidden"
       camera={{ position: [0, 0, 7], fov: 25 }}
       style={{ height: "500px" }}
     >
@@ -70,12 +70,12 @@ function Card() {
             metalness={0.5}
           />
         </mesh>
-        <mesh
+        {/* <mesh
           geometry={nodes.clip.geometry}
           material={materials.metal}
           material-roughness={0.3}
-        />
-        <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
+        /> */}
+        {/* <mesh geometry={nodes.clamp.geometry} material={materials.metal} /> */}
       </group>
     </>
   );
