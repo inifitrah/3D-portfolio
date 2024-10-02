@@ -24,19 +24,20 @@ function Loader() {
 export const Hero = () => {
   return (
     <section className="text-white min-h-screen flex relative" id="home">
-      <div className="lg:ml-20 w-1/2  flex flex-col sm:mt-60 mt-20 c-space z-[100]">
+      <div className="lg:ml-20 w-1/2  flex flex-col sm:mt-30 md:mt-60 mt-20 c-space z-[100]">
         <p className="">I'm a</p>
         <p className="hero_tag text-gray_gradient">Software Engineer, </p>
-        <p className="hero_tag text-gray_gradient ">Educator </p>
+        <p className="hero_tag text-gray_gradient ">Educator and </p>
+        <p className="hero_tag text-gray_gradient ">Creator </p>
         <p className="mt-10">
-          I'm a software engineer, writer, and creator. I write about
+          I'm a software engineer, educator, and creator. I write about
           programming, productivity, and personal development. I'm passionate
           about building products that make a difference.
         </p>
       </div>
 
       <div className=" hidden md:flex absolute inset-0">
-        <Leva />
+        <Leva hidden />
         <CardProfile />
       </div>
     </section>

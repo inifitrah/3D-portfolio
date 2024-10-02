@@ -152,29 +152,22 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   curve.curveType = "chordal";
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
-  const isMd = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
-  const isLg = useMediaQuery({ minWidth: 1024, maxWidth: 1280 });
-  const isXl = useMediaQuery({ minWidth: 1280 });
+  // const isMd = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
+  // const isLg = useMediaQuery({ minWidth: 1024, maxWidth: 1280 });
+  // const isXl = useMediaQuery({ minWidth: 1280 });
 
-  const x = useControls("CardPofile", {
-    positionX: {
-      value: isMd ? 1.2 : isLg ? 1.6 : isXl ? 2 : 2,
-      min: -10,
-      max: 10,
-    },
-    positionY: { value: 4.7, min: -10, max: 10 },
-    positionZ: { value: -0.2, min: -10, max: 10 },
-  });
-
+  // const x = useControls("CardPofile", {
+  //   positionX: {
+  //     value: isMd ? 1.2 : isLg ? 1.6 : isXl ? 2 : 2,
+  //     min: -10,
+  //     max: 10,
+  //   },
+  //   positionY: { value: 4.7, min: -10, max: 10 },
+  //   positionZ: { value: -0.2, min: -10, max: 10 },
+  // });
   return (
     <>
-      <group
-        position={[
-          isMd ? 1.2 : isLg ? 1.6 : isXl ? 2 : 2,
-          x.positionY,
-          x.positionZ,
-        ]}
-      >
+      <group position={[1.3, 4.5, -0.2]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />
